@@ -7,6 +7,10 @@ import MatchingGame from './games/MatchingGame';
 import SimonGame from './games/SimonGame';
 import SnakeGame from './games/SnakeGame';
 import Game2048 from './games/Game2048';
+import MinesweeperGame from './games/MinesweeperGame';
+import ConnectFourGame from './games/ConnectFourGame';
+import SudokuGame from './games/SudokuGame';
+import BreakoutGame from './games/BreakoutGame';
 import './App.css';
 
 function App() {
@@ -43,6 +47,14 @@ function App() {
         <SnakeGame onBack={handleBackToMenu} />
       ) : currentGame === '2048' ? (
         <Game2048 onBack={handleBackToMenu} />
+      ) : currentGame === 'minesweeper' ? (
+        <MinesweeperGame onBack={handleBackToMenu} />
+      ) : currentGame === 'connectfour' ? (
+        <ConnectFourGame onBack={handleBackToMenu} />
+      ) : currentGame === 'sudoku' ? (
+        <SudokuGame onBack={handleBackToMenu} />
+      ) : currentGame === 'breakout' ? (
+        <BreakoutGame onBack={handleBackToMenu} />
       ) : null}
     </div>
   );

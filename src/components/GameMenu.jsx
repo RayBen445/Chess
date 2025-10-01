@@ -41,6 +41,34 @@ const GameMenu = ({ onSelectGame }) => {
       description: 'Slide and merge tiles',
       icon: '🎲',
       color: 'rgba(200, 150, 255, 0.3)'
+    },
+    {
+      id: 'minesweeper',
+      name: '💣 Minesweeper',
+      description: 'Find all the mines',
+      icon: '💣',
+      color: 'rgba(255, 200, 100, 0.3)'
+    },
+    {
+      id: 'connectfour',
+      name: '🔴 Connect Four',
+      description: 'Get four in a row',
+      icon: '🔴',
+      color: 'rgba(100, 200, 255, 0.3)'
+    },
+    {
+      id: 'sudoku',
+      name: '🔢 Sudoku',
+      description: 'Number puzzle game',
+      icon: '🔢',
+      color: 'rgba(200, 100, 255, 0.3)'
+    },
+    {
+      id: 'breakout',
+      name: '🧱 Breakout',
+      description: 'Break all the bricks',
+      icon: '🧱',
+      color: 'rgba(255, 150, 200, 0.3)'
     }
   ];
 

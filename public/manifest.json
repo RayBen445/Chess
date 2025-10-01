@@ -1,7 +1,7 @@
 {
   "name": "Cool Shot Systems Game Hub",
   "short_name": "Game Hub",
-  "description": "Cool Shot Systems Game Hub - Play 6 amazing games offline: Chess, Tic-Tac-Toe, Matching, Simon Says, Snake, and 2048",
+  "description": "Cool Shot Systems Game Hub - Play 10 amazing games offline: Chess, Tic-Tac-Toe, Matching, Simon Says, Snake, 2048, Minesweeper, Connect Four, Sudoku, and Breakout",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#667eea",

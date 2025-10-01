@@ -1,6 +1,6 @@
 # Cool Shot Systems Game Hub
 
-A modern **Progressive Web App (PWA)** featuring multiple classic games with beautiful glassmorphism design. Play Chess, Tic-Tac-Toe, Matching, Simon Says, Snake, and 2048 - all working completely offline!
+A modern **Progressive Web App (PWA)** featuring **10 complete games** with beautiful glassmorphism design. Play Chess, Tic-Tac-Toe, Matching, Simon Says, Snake, 2048, Minesweeper, Connect Four, Sudoku, and Breakout - all working completely offline!
 
 ## 🎮 Available Games
 
@@ -47,6 +47,34 @@ A modern **Progressive Web App (PWA)** featuring multiple classic games with bea
 - Arrow keys or WASD controls
 - Score tracking
 - Beautiful tile animations
+
+### 💣 Minesweeper ⭐ NEW
+- Classic mine-finding game
+- Three difficulty levels: Easy, Medium, Hard
+- Left click to reveal, Right click to flag
+- Mine counter
+- Win/loss detection
+
+### 🔴 Connect Four ⭐ NEW
+- Classic 4-in-a-row game
+- Two-player gameplay
+- Visual winning line highlight
+- Score tracking
+- Beautiful disc animations
+
+### 🔢 Sudoku ⭐ NEW
+- Number puzzle game
+- Randomly generated puzzles
+- Visual validation
+- Click to select, number keys to input
+- Puzzle solver
+
+### 🧱 Breakout ⭐ NEW
+- Classic brick breaker arcade game
+- Paddle and ball physics
+- Multiple brick rows with colors
+- Lives system
+- Score and high score tracking
 
 ## ✨ Features
 
