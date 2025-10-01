@@ -47,7 +47,7 @@ const GameMenu = ({ onSelectGame }) => {
   return (
     <div className="game-menu">
       <div className="menu-header">
-        <h1>🎮 Game Center</h1>
+        <h1>🎮 Cool Shot Systems Game Hub</h1>
         <p>Choose your game and start playing!</p>
       </div>
       

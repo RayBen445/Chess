@@ -1,4 +1,4 @@
-# Game Center - Play Offline Games
+# Cool Shot Systems Game Hub
 
 A modern **Progressive Web App (PWA)** featuring multiple classic games with beautiful glassmorphism design. Play Chess, Tic-Tac-Toe, Matching, Simon Says, Snake, and 2048 - all working completely offline!
 
