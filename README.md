@@ -1,6 +1,6 @@
 # Game Center - Play Offline Games
 
-A modern **Progressive Web App (PWA)** featuring multiple classic games with beautiful glassmorphism design. Play Chess, Tic-Tac-Toe, and Matching games - all working completely offline!
+A modern **Progressive Web App (PWA)** featuring multiple classic games with beautiful glassmorphism design. Play Chess, Tic-Tac-Toe, Matching, Simon Says, Snake, and 2048 - all working completely offline!
 
 ## 🎮 Available Games
 
@@ -26,6 +26,27 @@ A modern **Progressive Web App (PWA)** featuring multiple classic games with bea
 - Move counter
 - Match tracking
 - Beautiful emoji cards
+
+### 🎵 Simon Says
+- Memory sequence game
+- Audio and visual feedback
+- Increasing difficulty
+- High score tracking
+- Four colored buttons
+
+### 🐍 Snake
+- Classic snake game
+- Use arrow keys or WASD
+- Increasing speed as you grow
+- Score and high score tracking
+- Collision detection
+
+### 🎲 2048
+- Slide and merge tiles
+- Reach the 2048 tile to win
+- Arrow keys or WASD controls
+- Score tracking
+- Beautiful tile animations
 
 ## ✨ Features
 

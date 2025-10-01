@@ -20,6 +20,27 @@ const GameMenu = ({ onSelectGame }) => {
       description: 'Memory card matching game',
       icon: '🎴',
       color: 'rgba(150, 255, 100, 0.3)'
+    },
+    {
+      id: 'simon',
+      name: '🎵 Simon Says',
+      description: 'Memory sequence game',
+      icon: '🎵',
+      color: 'rgba(255, 100, 200, 0.3)'
+    },
+    {
+      id: 'snake',
+      name: '🐍 Snake',
+      description: 'Classic snake game',
+      icon: '🐍',
+      color: 'rgba(100, 255, 150, 0.3)'
+    },
+    {
+      id: '2048',
+      name: '🎲 2048',
+      description: 'Slide and merge tiles',
+      icon: '🎲',
+      color: 'rgba(200, 150, 255, 0.3)'
     }
   ];
 
