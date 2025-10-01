@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function SnakeGame({ onBack }) {
   const [snake, setSnake] = useState([[10, 10]]);
@@ -188,6 +189,33 @@ function SnakeGame({ onBack }) {
         maxWidth: '600px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Control the snake to eat food and grow as long as possible without hitting the walls or yourself!'
+          },
+          {
+            title: '🎮 Controls',
+            steps: [
+              'Use Arrow Keys (↑ ↓ ← →) or WASD to control direction',
+              'Use on-screen buttons for touch devices',
+              'Click Start/Restart to begin a new game',
+              'The snake moves automatically once started'
+            ]
+          },
+          {
+            title: '⚡ Gameplay',
+            steps: [
+              'Eat the red food to grow longer and score points',
+              'Each food gives you 10 points',
+              'The snake speeds up as you grow',
+              'Game ends if you hit the wall or yourself',
+              'Try to beat your high score!'
+            ]
+          }
+        ]} />
+
         {/* Score Display */}
         <div style={{
           display: 'flex',

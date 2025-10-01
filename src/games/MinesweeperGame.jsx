@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function MinesweeperGame({ onBack }) {
   const [difficulty, setDifficulty] = useState('easy');
@@ -183,6 +184,45 @@ function MinesweeperGame({ onBack }) {
         maxWidth: '800px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Reveal all safe squares without clicking on any mines!'
+          },
+          {
+            title: '🎮 Controls',
+            steps: [
+              'Left Click: Reveal a square',
+              'Right Click: Place or remove a flag (mark suspected mines)',
+              'Numbers show how many mines are adjacent to that square',
+              'Empty squares with no adjacent mines auto-reveal neighbors'
+            ]
+          },
+          {
+            title: '📊 Difficulty Levels',
+            steps: [
+              'Easy: 9x9 grid with 10 mines',
+              'Medium: 16x16 grid with 40 mines',
+              'Hard: 16x30 grid with 99 mines'
+            ]
+          },
+          {
+            title: '⚡ Gameplay',
+            steps: [
+              'The first click is always safe',
+              'Use numbers to deduce where mines are',
+              'Flag all suspected mines',
+              'Reveal all safe squares to win',
+              'Clicking a mine ends the game'
+            ]
+          },
+          {
+            title: '💡 Tips',
+            text: 'Start from corners and edges. If a square shows "1" and has only one unrevealed neighbor, that neighbor is definitely a mine!'
+          }
+        ]} />
+
         {/* Difficulty Selection */}
         {!gameStarted && (
           <div style={{

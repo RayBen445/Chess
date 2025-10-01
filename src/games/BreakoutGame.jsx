@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function BreakoutGame({ onBack }) {
   const canvasRef = useRef(null);
@@ -259,6 +260,43 @@ function BreakoutGame({ onBack }) {
         maxWidth: '700px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Break all the bricks by bouncing the ball with your paddle without letting it fall off the bottom!'
+          },
+          {
+            title: '🎮 Controls',
+            steps: [
+              'Move your mouse left and right to control the paddle',
+              'The paddle follows your mouse position horizontally',
+              'Click "Start" to begin the game',
+              'Click "Restart" to start over after game ends'
+            ]
+          },
+          {
+            title: '⚡ Gameplay',
+            steps: [
+              'The ball bounces off walls, paddle, and bricks',
+              'Each brick gives you 10 points when broken',
+              'Different colored bricks are worth different points',
+              'You have 3 lives - you lose one each time the ball falls',
+              'Game ends when you break all bricks (you win!) or run out of lives',
+              'Ball speed increases as you break more bricks'
+            ]
+          },
+          {
+            title: '💡 Tips',
+            steps: [
+              'Hit the ball with the edge of the paddle to change its angle',
+              'Aim for the top rows of bricks first',
+              'Keep the paddle moving to reach the ball in time',
+              'Try to beat your high score!'
+            ]
+          }
+        ]} />
+
         {/* Stats */}
         <div style={{
           display: 'flex',

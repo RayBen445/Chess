@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function SimonGame({ onBack }) {
   const [sequence, setSequence] = useState([]);
@@ -163,6 +164,39 @@ function SimonGame({ onBack }) {
         maxWidth: '600px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Watch the sequence of colored buttons flash and repeat it back correctly!'
+          },
+          {
+            title: '🎮 How to Play',
+            steps: [
+              'Click "Start" to begin the game',
+              'Watch the sequence of colored buttons light up',
+              'Each button makes a unique sound when it lights up',
+              'After the sequence finishes, click the buttons in the same order',
+              'If correct, the sequence gets one step longer',
+              'If wrong, the game ends'
+            ]
+          },
+          {
+            title: '⚡ Gameplay',
+            steps: [
+              'The sequence starts with 1 color and grows each round',
+              'Colors: Green, Red, Yellow, Blue',
+              'Each correct round increases your score',
+              'Try to beat your high score!',
+              'The game gets progressively faster'
+            ]
+          },
+          {
+            title: '💡 Tip',
+            text: 'Pay attention to both the visual patterns and the sounds - they help you remember the sequence!'
+          }
+        ]} />
+
         {/* Score Display */}
         <div style={{
           display: 'flex',

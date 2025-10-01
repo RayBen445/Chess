@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function Game2048({ onBack }) {
   const gridSize = 4;
@@ -247,6 +248,36 @@ function Game2048({ onBack }) {
         maxWidth: '600px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Combine tiles with the same numbers to reach the 2048 tile!'
+          },
+          {
+            title: '🎮 Controls',
+            steps: [
+              'Use Arrow Keys (↑ ↓ ← →) or WASD to slide tiles',
+              'Use on-screen buttons for touch devices',
+              'All tiles slide in the chosen direction until they hit a wall or another tile'
+            ]
+          },
+          {
+            title: '⚡ Gameplay',
+            steps: [
+              'When two tiles with the same number touch, they merge into one',
+              'The merged tile\'s value is the sum of the two tiles',
+              'After each move, a new tile (2 or 4) appears in a random empty spot',
+              'Keep combining tiles to reach 2048!',
+              'Game ends when no moves are possible'
+            ]
+          },
+          {
+            title: '💡 Tips',
+            text: 'Keep your highest tile in a corner and build around it. Try to create sequences of descending numbers!'
+          }
+        ]} />
+
         {/* Score Display */}
         <div style={{
           display: 'flex',

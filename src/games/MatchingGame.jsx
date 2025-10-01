@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function MatchingGame({ onBack }) {
   const [cards, setCards] = useState([]);
@@ -134,6 +135,39 @@ function MatchingGame({ onBack }) {
         maxWidth: '800px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Find all matching pairs of cards by remembering their positions!'
+          },
+          {
+            title: '🎮 How to Play',
+            steps: [
+              'Choose a difficulty level (Very Easy to Expert)',
+              'Click on a card to flip it and reveal the emoji',
+              'Click on a second card to try to find its match',
+              'If the cards match, they stay flipped',
+              'If they don\'t match, they flip back over',
+              'Match all pairs to win!'
+            ]
+          },
+          {
+            title: '📊 Difficulty Levels',
+            steps: [
+              'Very Easy: 4 pairs (8 cards)',
+              'Easy: 6 pairs (12 cards)',
+              'Medium: 10 pairs (20 cards)',
+              'Hard: 14 pairs (28 cards)',
+              'Expert: 18 pairs (36 cards)'
+            ]
+          },
+          {
+            title: '💡 Tip',
+            text: 'Pay attention to card positions and try to remember where each emoji is located!'
+          }
+        ]} />
+
         {/* Difficulty Selection */}
         <div style={{
           display: 'flex',

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function TicTacToeGame({ onBack }) {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -164,6 +165,28 @@ function TicTacToeGame({ onBack }) {
         maxWidth: '600px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Be the first player to get three of your marks (X or O) in a row - horizontally, vertically, or diagonally.'
+          },
+          {
+            title: '🎮 How to Play',
+            steps: [
+              'Choose between Player vs Player or Player vs AI mode',
+              'Players take turns clicking on empty squares',
+              'X always goes first',
+              'The first player to get 3 in a row wins!',
+              'If all 9 squares are filled and no one has 3 in a row, it\'s a draw'
+            ]
+          },
+          {
+            title: '🤖 AI Mode',
+            text: 'In Player vs AI mode, you play as X and the computer plays as O. The AI will try to win and block your winning moves!'
+          }
+        ]} />
+
         {/* Game Mode Selection */}
         <div style={{
           display: 'flex',

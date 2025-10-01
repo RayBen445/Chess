@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function ConnectFourGame({ onBack }) {
   const rows = 6;
@@ -146,6 +147,34 @@ function ConnectFourGame({ onBack }) {
         maxWidth: '700px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Be the first player to connect four of your colored discs in a row - horizontally, vertically, or diagonally!'
+          },
+          {
+            title: '🎮 How to Play',
+            steps: [
+              'Two players take turns (Red and Yellow)',
+              'Click on any column to drop your disc',
+              'Discs fall to the lowest available position in that column',
+              'Red always goes first',
+              'First player to get 4 in a row wins!',
+              'If all slots fill up with no winner, it\'s a draw'
+            ]
+          },
+          {
+            title: '⚡ Strategy Tips',
+            steps: [
+              'Control the center column - it gives you more winning opportunities',
+              'Watch for your opponent\'s three-in-a-row and block them',
+              'Try to create multiple threats at once',
+              'Think ahead - plan your moves 2-3 turns in advance'
+            ]
+          }
+        ]} />
+
         {/* Status */}
         <div style={{
           background: 'rgba(255, 255, 255, 0.1)',

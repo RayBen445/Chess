@@ -4,6 +4,7 @@ import MoveHistory from './MoveHistory';
 import ChessClock from './ChessClock';
 import GameControls from './GameControls';
 import OpeningBook from './OpeningBook';
+import HowToPlay from '../components/HowToPlay';
 import { useChessGame } from '../hooks/useChessGame';
 import { useChessClock } from '../hooks/useChessClock';
 import { useStockfish } from '../hooks/useStockfish';
@@ -143,6 +144,54 @@ function ChessGame({ onBack }) {
       <div className="game-header">
         <h1>♔ Chess Game ♚</h1>
         <p>A modern chess application with drag & drop, timers, and AI</p>
+      </div>
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto 20px', padding: '0 20px' }}>
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Checkmate your opponent\'s king - put it in a position where it\'s under attack and has no legal moves to escape.'
+          },
+          {
+            title: '🎮 Controls',
+            steps: [
+              'Click on a piece to select it (highlights valid moves in green)',
+              'Click on a highlighted square to move there',
+              'Or drag and drop pieces to move them',
+              'Use Previous/Next buttons to review move history',
+              'Click "Computer Move" for AI suggestions (Stockfish engine)'
+            ]
+          },
+          {
+            title: '♟️ Piece Movements',
+            steps: [
+              '♟ Pawns: Move forward 1 square (2 on first move), capture diagonally',
+              '♜ Rooks: Move any number of squares horizontally or vertically',
+              '♞ Knights: Move in an L-shape (2 squares + 1 perpendicular)',
+              '♝ Bishops: Move any number of squares diagonally',
+              '♛ Queen: Combines rook and bishop movements',
+              '♚ King: Move 1 square in any direction'
+            ]
+          },
+          {
+            title: '⚡ Special Moves',
+            steps: [
+              'Castling: King + Rook special move (conditions apply)',
+              'En Passant: Special pawn capture',
+              'Promotion: Pawn reaching the end becomes Queen/Rook/Bishop/Knight'
+            ]
+          },
+          {
+            title: '📖 Features',
+            steps: [
+              'Chess Clocks: 10 minutes per player',
+              'Opening Book: Shows recognized opening names',
+              'Move History: Review and navigate through all moves',
+              'Computer Move: Get AI move suggestions',
+              'Flip Board: View from either player\'s perspective'
+            ]
+          }
+        ]} />
       </div>
 
       <div className="game-container">

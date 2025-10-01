@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import HowToPlay from '../components/HowToPlay';
 
 function SudokuGame({ onBack }) {
   const [board, setBoard] = useState(Array(9).fill(null).map(() => Array(9).fill(0)));
@@ -161,6 +162,42 @@ function SudokuGame({ onBack }) {
         maxWidth: '700px',
         margin: '0 auto'
       }}>
+        {/* How to Play */}
+        <HowToPlay instructions={[
+          {
+            title: '🎯 Objective',
+            text: 'Fill the 9x9 grid so that each row, column, and 3x3 box contains the digits 1-9 without repetition.'
+          },
+          {
+            title: '🎮 How to Play',
+            steps: [
+              'Click on any empty white cell to select it',
+              'Type a number (1-9) to fill the cell',
+              'The puzzle starts with some cells already filled (gray cells)',
+              'You cannot edit the pre-filled gray cells',
+              'Invalid entries will be highlighted in red'
+            ]
+          },
+          {
+            title: '📏 Rules',
+            steps: [
+              'Each row must contain numbers 1-9 exactly once',
+              'Each column must contain numbers 1-9 exactly once',
+              'Each of the nine 3x3 boxes must contain numbers 1-9 exactly once',
+              'No number can repeat in its row, column, or 3x3 box'
+            ]
+          },
+          {
+            title: '💡 Strategy Tips',
+            steps: [
+              'Start with rows/columns/boxes that have the most filled cells',
+              'Look for cells where only one number is possible',
+              'Use process of elimination',
+              'Check each move carefully before entering'
+            ]
+          }
+        ]} />
+
         {/* Game Status */}
         {won && (
           <div style={{
