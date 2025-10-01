@@ -1,0 +1,115 @@
+.app {
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.app-header h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.app-header p {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  gap: 20px;
+  max-width: 1400px;
+  width: 100%;
+  align-items: start;
+}
+
+.left-panel,
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.center-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Scrollbar styling for glassmorphism */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .game-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .left-panel,
+  .right-panel {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .center-panel {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 10px;
+  }
+
+  .app-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .app-header p {
+    font-size: 0.9rem;
+  }
+
+  .game-container {
+    gap: 15px;
+  }
+}
