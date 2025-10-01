@@ -1,0 +1,3 @@
+This file would contain a 192x192 PNG icon for the PWA.
+For production, replace this with an actual PNG image.
+The icon should represent the game center with game symbols.

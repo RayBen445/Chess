@@ -1,16 +1,121 @@
-# React + Vite
+# Game Center - Play Offline Games
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Progressive Web App (PWA)** featuring multiple classic games with beautiful glassmorphism design. Play Chess, Tic-Tac-Toe, and Matching games - all working completely offline!
 
-Currently, two official plugins are available:
+## 🎮 Available Games
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ♔ Chess
+- Full chess game with legal move validation
+- Drag & drop or click-to-move pieces
+- Chess timers for both players
+- Move history and navigation
+- Opening book display
+- Stockfish AI integration (optional)
+- Board flip functionality
 
-## React Compiler
+### ✖ Tic-Tac-Toe
+- Classic 3x3 grid game
+- Player vs Player mode
+- Player vs AI mode (smart AI opponent)
+- Score tracking
+- Win/Draw detection with visual highlighting
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎴 Matching Game
+- Memory card matching game
+- Three difficulty levels: Easy (6 pairs), Medium (10 pairs), Hard (14 pairs)
+- Move counter
+- Match tracking
+- Beautiful emoji cards
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎨 **Glassmorphism Design** - Beautiful frosted glass UI effects
+- 📱 **Progressive Web App** - Install on your device like a native app
+- 🚫 **Offline First** - Works completely without internet connection
+- 🎯 **Multiple Games** - Three different games in one app
+- 💾 **Service Worker** - Cached for instant loading
+- 📲 **Mobile Friendly** - Responsive design for all devices
+- 🌈 **Smooth Animations** - Polished user experience
+
+## 🚀 Getting Started
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+npm run dev
+```
+
+### Production Build
+
+```bash
+npm run build
+```
+
+### Lint Code
+
+```bash
+npm run lint
+```
+
+## 📱 Install as an App
+
+This is a Progressive Web App (PWA) that can be installed on your device:
+
+1. **On Desktop:** Look for the install icon in your browser's address bar
+2. **On Mobile:** Use your browser's "Add to Home Screen" option
+3. **Works Offline:** Once installed, the app works without internet connection
+
+## 🎯 How to Play
+
+### Chess
+1. Click on a piece to see valid moves (highlighted in green)
+2. Click on a highlighted square to move
+3. Or drag and drop pieces
+4. Use Previous/Next buttons to review moves
+5. Click "Computer Move" for AI suggestions (if available)
+
+### Tic-Tac-Toe
+1. Choose Player vs Player or Player vs AI
+2. Click on any empty square to place your mark
+3. Get three in a row to win!
+4. Track your wins and draws
+
+### Matching Game
+1. Select difficulty level
+2. Click cards to flip them
+3. Find matching pairs
+4. Complete all pairs to win!
+
+## 🛠️ Technology Stack
+
+- **React** - UI framework
+- **Vite** - Fast build tool
+- **chess.js** - Chess game logic
+- **react-dnd** - Drag and drop for chess pieces
+- **stockfish.js** - Chess AI engine (optional)
+- **Service Worker** - Offline functionality
+- **PWA Manifest** - App installation support
+
+## 🎨 Design
+
+The app features a modern glassmorphism design with:
+- Frosted glass effect panels
+- Smooth animations and transitions
+- Purple gradient background
+- Responsive layouts
+- Touch-friendly controls
+
+## 📄 License
+
+MIT
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to submit issues and pull requests.
+
