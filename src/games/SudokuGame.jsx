@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 
 function SudokuGame({ onBack }) {
   const [board, setBoard] = useState(Array(9).fill(null).map(() => Array(9).fill(0)));

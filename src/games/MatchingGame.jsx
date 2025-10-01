@@ -6,12 +6,14 @@ function MatchingGame({ onBack }) {
   const [matched, setMatched] = useState([]);
   const [moves, setMoves] = useState(0);
   const [gameWon, setGameWon] = useState(false);
-  const [difficulty, setDifficulty] = useState('easy'); // easy, medium, hard
+  const [difficulty, setDifficulty] = useState('easy'); // veryeasy, easy, medium, hard, expert
 
   const emojis = {
+    veryeasy: ['🎮', '🎯', '🎨', '🎭'],
     easy: ['🎮', '🎯', '🎨', '🎭', '🎪', '🎸'],
     medium: ['🎮', '🎯', '🎨', '🎭', '🎪', '🎸', '🎺', '🎻', '🎼', '🎹'],
-    hard: ['🎮', '🎯', '🎨', '🎭', '🎪', '🎸', '🎺', '🎻', '🎼', '🎹', '🎲', '🎰', '🎳', '🎴']
+    hard: ['🎮', '🎯', '🎨', '🎭', '🎪', '🎸', '🎺', '🎻', '🎼', '🎹', '🎲', '🎰', '🎳', '🎴'],
+    expert: ['🎮', '🎯', '🎨', '🎭', '🎪', '🎸', '🎺', '🎻', '🎼', '🎹', '🎲', '🎰', '🎳', '🎴', '🏀', '⚽', '🏈', '⚾']
   };
 
   const initializeGame = useCallback((diff) => {
@@ -74,9 +76,19 @@ function MatchingGame({ onBack }) {
   }, []);
 
   const gridCols = {
+    veryeasy: 4,
     easy: 3,
     medium: 4,
-    hard: 6
+    hard: 6,
+    expert: 6
+  };
+
+  const difficultyLabels = {
+    veryeasy: 'Very Easy',
+    easy: 'Easy',
+    medium: 'Medium',
+    hard: 'Hard',
+    expert: 'Expert'
   };
 
   return (
@@ -132,22 +144,22 @@ function MatchingGame({ onBack }) {
           padding: '10px',
           border: '1px solid rgba(255, 255, 255, 0.2)'
         }}>
-          {['easy', 'medium', 'hard'].map((diff) => (
+          {['veryeasy', 'easy', 'medium', 'hard', 'expert'].map((diff) => (
             <button
               key={diff}
               onClick={() => changeDifficulty(diff)}
               style={{
-                padding: '10px 20px',
+                padding: '10px 15px',
                 borderRadius: '8px',
                 border: 'none',
                 backgroundColor: difficulty === diff ? 'rgba(100, 150, 255, 0.6)' : 'rgba(255, 255, 255, 0.2)',
                 color: 'white',
                 cursor: 'pointer',
                 fontWeight: '500',
-                textTransform: 'capitalize'
+                fontSize: '0.9rem'
               }}
             >
-              {diff} ({emojis[diff].length} pairs)
+              {difficultyLabels[diff]} ({emojis[diff].length})
             </button>
           ))}
         </div>
@@ -211,9 +223,9 @@ function MatchingGame({ onBack }) {
                 key={card.id}
                 onClick={() => handleCardClick(index)}
                 style={{
-                  width: difficulty === 'hard' ? '80px' : '100px',
-                  height: difficulty === 'hard' ? '80px' : '100px',
-                  fontSize: difficulty === 'hard' ? '2.5rem' : '3rem',
+                  width: (difficulty === 'hard' || difficulty === 'expert') ? '80px' : '100px',
+                  height: (difficulty === 'hard' || difficulty === 'expert') ? '80px' : '100px',
+                  fontSize: (difficulty === 'hard' || difficulty === 'expert') ? '2.5rem' : '3rem',
                   border: 'none',
                   borderRadius: '10px',
                   backgroundColor: matched.includes(index)

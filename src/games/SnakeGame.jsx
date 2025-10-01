@@ -305,6 +305,100 @@ function SnakeGame({ onBack }) {
           />
         </div>
 
+        {/* On-Screen Control Buttons */}
+        {isPlaying && !gameOver && (
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 80px)',
+            gridTemplateRows: 'repeat(3, 80px)',
+            gap: '10px',
+            background: 'rgba(255, 255, 255, 0.1)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '10px',
+            padding: '15px',
+            border: '1px solid rgba(255, 255, 255, 0.2)',
+            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)'
+          }}>
+            <div></div>
+            <button
+              onClick={() => {
+                if (directionRef.current !== 'DOWN') setDirection('UP');
+              }}
+              style={{
+                border: 'none',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(100, 150, 255, 0.4)',
+                color: 'white',
+                cursor: 'pointer',
+                fontSize: '2rem',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 16px 0 rgba(31, 38, 135, 0.2)',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              ↑
+            </button>
+            <div></div>
+            <button
+              onClick={() => {
+                if (directionRef.current !== 'RIGHT') setDirection('LEFT');
+              }}
+              style={{
+                border: 'none',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(100, 150, 255, 0.4)',
+                color: 'white',
+                cursor: 'pointer',
+                fontSize: '2rem',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 16px 0 rgba(31, 38, 135, 0.2)',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              ←
+            </button>
+            <div></div>
+            <button
+              onClick={() => {
+                if (directionRef.current !== 'LEFT') setDirection('RIGHT');
+              }}
+              style={{
+                border: 'none',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(100, 150, 255, 0.4)',
+                color: 'white',
+                cursor: 'pointer',
+                fontSize: '2rem',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 16px 0 rgba(31, 38, 135, 0.2)',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              →
+            </button>
+            <div></div>
+            <button
+              onClick={() => {
+                if (directionRef.current !== 'UP') setDirection('DOWN');
+              }}
+              style={{
+                border: 'none',
+                borderRadius: '8px',
+                backgroundColor: 'rgba(100, 150, 255, 0.4)',
+                color: 'white',
+                cursor: 'pointer',
+                fontSize: '2rem',
+                backdropFilter: 'blur(10px)',
+                boxShadow: '0 4px 16px 0 rgba(31, 38, 135, 0.2)',
+                transition: 'all 0.2s ease'
+              }}
+            >
+              ↓
+            </button>
+            <div></div>
+          </div>
+        )}
+
         {/* Controls */}
         <button
           onClick={startGame}
