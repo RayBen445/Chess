@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import HowToPlay from '../components/HowToPlay';
 
 function SimonGame({ onBack }) {
+  const [level, setLevel] = useState(1);
   const [sequence, setSequence] = useState([]);
   const [playerSequence, setPlayerSequence] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -10,6 +11,20 @@ function SimonGame({ onBack }) {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+
+  // Level settings: sequence length and speed
+  const levelSettings = {
+    1: { startLength: 3, speed: 500 },
+    2: { startLength: 4, speed: 450 },
+    3: { startLength: 5, speed: 400 },
+    4: { startLength: 6, speed: 350 },
+    5: { startLength: 7, speed: 300 },
+    6: { startLength: 9, speed: 250 },
+    7: { startLength: 11, speed: 200 },
+    8: { startLength: 13, speed: 150 },
+    9: { startLength: 14, speed: 100 },
+    10: { startLength: 15, speed: 70 }
+  };
 
   const colors = ['red', 'blue', 'green', 'yellow'];
   const sounds = {
@@ -37,16 +52,17 @@ function SimonGame({ onBack }) {
     oscillator.stop(audioContext.currentTime + 0.3);
   }, []);
 
-  const flashButton = useCallback((color, duration = 400) => {
+  const flashButton = useCallback((color, duration) => {
+    const actualDuration = duration || levelSettings[level].speed;
     return new Promise((resolve) => {
       setActiveButton(color);
       playSound(color);
       setTimeout(() => {
         setActiveButton(null);
         setTimeout(resolve, 100);
-      }, duration);
+      }, actualDuration);
     });
-  }, [playSound]);
+  }, [playSound, level, levelSettings]);
 
   const showSequence = useCallback(async () => {
     setIsShowingSequence(true);
@@ -57,13 +73,17 @@ function SimonGame({ onBack }) {
   }, [sequence, flashButton]);
 
   const startGame = useCallback(() => {
-    const newSequence = [colors[Math.floor(Math.random() * 4)]];
+    const startLength = levelSettings[level].startLength;
+    const newSequence = [];
+    for (let i = 0; i < startLength; i++) {
+      newSequence.push(colors[Math.floor(Math.random() * 4)]);
+    }
     setSequence(newSequence);
     setPlayerSequence([]);
     setScore(0);
     setGameOver(false);
     setIsPlaying(true);
-  }, []);
+  }, [level, levelSettings]);
 
   const nextRound = useCallback(() => {
     const newSequence = [...sequence, colors[Math.floor(Math.random() * 4)]];
@@ -173,6 +193,7 @@ function SimonGame({ onBack }) {
           {
             title: '🎮 How to Play',
             steps: [
+              'Select a level (1-10) to set difficulty',
               'Click "Start" to begin the game',
               'Watch the sequence of colored buttons light up',
               'Each button makes a unique sound when it lights up',
@@ -182,13 +203,12 @@ function SimonGame({ onBack }) {
             ]
           },
           {
-            title: '⚡ Gameplay',
+            title: '⚡ Levels',
             steps: [
-              'The sequence starts with 1 color and grows each round',
-              'Colors: Green, Red, Yellow, Blue',
-              'Each correct round increases your score',
-              'Try to beat your high score!',
-              'The game gets progressively faster'
+              'Level 1: 3 colors, slow speed (perfect for beginners)',
+              'Level 5: 7 colors, medium speed (moderate challenge)',
+              'Level 10: 15 colors, very fast speed (expert only!)',
+              'Higher levels = longer sequences and faster playback'
             ]
           },
           {
@@ -196,6 +216,57 @@ function SimonGame({ onBack }) {
             text: 'Pay attention to both the visual patterns and the sounds - they help you remember the sequence!'
           }
         ]} />
+
+        {/* Level Selector */}
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '10px',
+          padding: '20px',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          width: '100%'
+        }}>
+          <div style={{ color: 'white', marginBottom: '15px', textAlign: 'center', fontSize: '1.1rem', fontWeight: '500' }}>
+            Select Level
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((lv) => (
+              <button
+                key={lv}
+                onClick={() => setLevel(lv)}
+                disabled={isPlaying && !gameOver}
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '8px',
+                  border: level === lv ? '3px solid rgba(100, 200, 255, 1)' : '2px solid rgba(255, 255, 255, 0.3)',
+                  backgroundColor: level === lv ? 'rgba(100, 200, 255, 0.4)' : 'rgba(255, 255, 255, 0.15)',
+                  color: 'white',
+                  cursor: (isPlaying && !gameOver) ? 'not-allowed' : 'pointer',
+                  fontSize: '1.2rem',
+                  fontWeight: 'bold',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.2s ease',
+                  opacity: (isPlaying && !gameOver) ? 0.5 : 1
+                }}
+                onMouseEnter={(e) => {
+                  if (!isPlaying || gameOver) {
+                    e.target.style.transform = 'scale(1.1)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                }}
+              >
+                {lv}
+              </button>
+            ))}
+          </div>
+          <div style={{ color: 'white', marginTop: '15px', textAlign: 'center', fontSize: '0.9rem', opacity: 0.8 }}>
+            Level {level}: {levelSettings[level].startLength} colors, {levelSettings[level].speed}ms speed
+          </div>
+        </div>
 
         {/* Score Display */}
         <div style={{

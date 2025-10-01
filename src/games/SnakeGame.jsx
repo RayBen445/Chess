@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import HowToPlay from '../components/HowToPlay';
 
 function SnakeGame({ onBack }) {
+  const [level, setLevel] = useState(1);
   const [snake, setSnake] = useState([[10, 10]]);
   const [food, setFood] = useState([15, 15]);
   const [direction, setDirection] = useState('RIGHT');
@@ -9,13 +10,32 @@ function SnakeGame({ onBack }) {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [speed, setSpeed] = useState(150);
+  
+  // Level-based speed settings (in milliseconds)
+  const levelSpeeds = {
+    1: 200,
+    2: 180,
+    3: 160,
+    4: 130,
+    5: 100,
+    6: 80,
+    7: 60,
+    8: 50,
+    9: 45,
+    10: 40
+  };
+  
+  const [speed, setSpeed] = useState(levelSpeeds[level]);
   
   const directionRef = useRef(direction);
   const gameLoopRef = useRef(null);
 
   const gridSize = 20;
   const cellSize = 25;
+
+  useEffect(() => {
+    setSpeed(levelSpeeds[level]);
+  }, [level]);
 
   useEffect(() => {
     directionRef.current = direction;
@@ -205,16 +225,66 @@ function SnakeGame({ onBack }) {
             ]
           },
           {
-            title: '⚡ Gameplay',
+            title: '⚡ Levels',
             steps: [
-              'Eat the red food to grow longer and score points',
-              'Each food gives you 10 points',
-              'The snake speeds up as you grow',
-              'Game ends if you hit the wall or yourself',
-              'Try to beat your high score!'
+              'Level 1: 200ms speed (beginner friendly)',
+              'Level 5: 100ms speed (moderate challenge)',
+              'Level 10: 40ms speed (lightning fast - expert only!)',
+              'Higher levels = faster snake movement'
             ]
           }
         ]} />
+
+        {/* Level Selector */}
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '10px',
+          padding: '20px',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+          width: '100%'
+        }}>
+          <div style={{ color: 'white', marginBottom: '15px', textAlign: 'center', fontSize: '1.1rem', fontWeight: '500' }}>
+            Select Level
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((lv) => (
+              <button
+                key={lv}
+                onClick={() => setLevel(lv)}
+                disabled={isPlaying && !gameOver}
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  borderRadius: '8px',
+                  border: level === lv ? '3px solid rgba(100, 255, 100, 1)' : '2px solid rgba(255, 255, 255, 0.3)',
+                  backgroundColor: level === lv ? 'rgba(100, 255, 100, 0.4)' : 'rgba(255, 255, 255, 0.15)',
+                  color: 'white',
+                  cursor: (isPlaying && !gameOver) ? 'not-allowed' : 'pointer',
+                  fontSize: '1.2rem',
+                  fontWeight: 'bold',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.2s ease',
+                  opacity: (isPlaying && !gameOver) ? 0.5 : 1
+                }}
+                onMouseEnter={(e) => {
+                  if (!isPlaying || gameOver) {
+                    e.target.style.transform = 'scale(1.1)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                }}
+              >
+                {lv}
+              </button>
+            ))}
+          </div>
+          <div style={{ color: 'white', marginTop: '15px', textAlign: 'center', fontSize: '0.9rem', opacity: 0.8 }}>
+            Level {level}: {levelSpeeds[level]}ms speed
+          </div>
+        </div>
 
         {/* Score Display */}
         <div style={{
